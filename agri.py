@@ -112,4 +112,11 @@ fig_comp.update_yaxes(title_text='Export Value (€M)', secondary_y=True)
 fig_comp.update_layout(height=420, plot_bgcolor='white', yaxis=dict(gridcolor='rgba(0,0,0,0.05)'))
 st.plotly_chart(fig_comp, use_container_width=True)
 
-st.markdown('---
+with st.expander('ℹ️ About this dashboard', expanded=False):
+    st.write(
+        '- **Data:** CSO Ireland (TSM10), Eurostat, EU Budget 2000-2024\n'
+        '- **Trade Balance:** Ireland exports minus imports (Euros Millions)\n'
+        '- **CAP Efficiency:** Export value per 1 EUR of CAP budget received\n'
+        '- **Tufte Principles:** data-ink maximised, colour encodes meaning\n'
+        '- **MSc Data Analytics CA2 - CCT College Dublin - 2026004**'
+    )
