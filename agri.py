@@ -41,9 +41,6 @@ with st.sidebar:
 
 st.markdown("### Ireland Agricultural Sector Overview")
 
-ie_year = merged_export_1[(merged_export_1['Country'] == 'Ireland') & (merged_export_1['Year'] == selected_year)]
-ie_prev = merged_export_1[(merged_export_1['Country'] == 'Ireland') & (merged_export_1['Year'] == selected_year - 1)]
-
 st.markdown('---')
 
 col1, col2 = st.columns(2)
