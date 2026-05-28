@@ -90,7 +90,6 @@ fig_comp.add_trace(go.Scatter(x=country_data['Year'], y=country_data['CAP Budget
     name=f'{selected_country} — CAP', mode='lines+markers', line=dict(color='#7F77DD', width=2)), secondary_y=False)
 fig_comp.add_trace(go.Scatter(x=country_data['Year'], y=country_data['Export Value (EUR Million)'],
     name=f'{selected_country} — Exports', mode='lines+markers', line=dict(color='#7F77DD', width=2, dash='dot')), secondary_y=True)
-fig_comp.add_vline(x=2020, line_dash='dot', line_color='gray', annotation_text='COVID / Brexit')
 fig_comp.update_yaxes(title_text='CAP Budget (€M)', secondary_y=False)
 fig_comp.update_yaxes(title_text='Export Value (€M)', secondary_y=True)
 fig_comp.update_layout(height=420, plot_bgcolor='white', yaxis=dict(gridcolor='rgba(0,0,0,0.05)'))
