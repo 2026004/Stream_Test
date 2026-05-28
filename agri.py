@@ -22,8 +22,6 @@ st.set_page_config(
 # Basado en patrón de uber.py del profesor:
 # DATA_URL = ('https://s3-us-west-2.amazonaws.com/...')
 
-BASE_URL = 'https://github.com/2026004/Stream_Test'
-
 
 @st.cache_data
 def load_data():
