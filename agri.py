@@ -5,8 +5,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
 st.set_page_config(
-    page_title="🇮🇪 Irish Agri-Food Dashboard",
-    page_icon="🌾",
+    page_title="Irish Agri-Food Dashboard",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -22,7 +21,7 @@ def load_data():
 trade_balance_ie, cap_eff, merged_export_1, eu_ml_interpolated = load_data()
 
 with st.sidebar:
-    st.title('🌾 Irish Agri-Food Dashboard')
+    st.title('Irish Agri-Food Dashboard')
     st.markdown('---')
     year_list = sorted(merged_export_1['Year'].unique(), reverse=True)
     selected_year = st.selectbox('Select Year', year_list)
@@ -40,7 +39,7 @@ with st.sidebar:
     **CCT College Dublin**
     ''')
 
-st.markdown("### 🇮🇪 Ireland Agricultural Sector Overview")
+st.markdown("### Ireland Agricultural Sector Overview")
 
 ie_year = merged_export_1[(merged_export_1['Country'] == 'Ireland') & (merged_export_1['Year'] == selected_year)]
 ie_prev = merged_export_1[(merged_export_1['Country'] == 'Ireland') & (merged_export_1['Year'] == selected_year - 1)]
@@ -64,7 +63,7 @@ st.markdown('---')
 
 col1, col2 = st.columns(2)
 with col1:
-    st.markdown('#### 🗺️ Trade Balance by Country')
+    st.markdown('#### Trade Balance by Country')
     fig_tb = px.choropleth(
         trade_balance_ie[trade_balance_ie['Year'] == selected_year],
         locations='Countries and Territories',
@@ -78,7 +77,7 @@ with col1:
     st.plotly_chart(fig_tb, use_container_width=True)
 
 with col2:
-    st.markdown('#### 🗺️ CAP Efficiency by Country')
+    st.markdown('#### CAP Efficiency by Country')
     fig_cap = px.choropleth(
         cap_eff[cap_eff['Year'] == selected_year],
         locations='Country',
@@ -112,7 +111,7 @@ fig_comp.update_yaxes(title_text='Export Value (€M)', secondary_y=True)
 fig_comp.update_layout(height=420, plot_bgcolor='white', yaxis=dict(gridcolor='rgba(0,0,0,0.05)'))
 st.plotly_chart(fig_comp, use_container_width=True)
 
-with st.expander('ℹ️ About this dashboard', expanded=False):
+with st.expander('About this dashboard', expanded=False):
     st.write(
         '- **Data:** CSO Ireland (TSM10), Eurostat, EU Budget 2000-2024\n'
         '- **Trade Balance:** Ireland exports minus imports (Euros Millions)\n'
