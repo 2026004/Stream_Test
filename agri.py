@@ -44,21 +44,6 @@ st.markdown("### Ireland Agricultural Sector Overview")
 ie_year = merged_export_1[(merged_export_1['Country'] == 'Ireland') & (merged_export_1['Year'] == selected_year)]
 ie_prev = merged_export_1[(merged_export_1['Country'] == 'Ireland') & (merged_export_1['Year'] == selected_year - 1)]
 
-col_kpi = st.columns(4)
-with col_kpi[0]:
-    val  = float(ie_year['Export Value (EUR Million)'].values[0]) if len(ie_year) > 0 else 0
-    prev = float(ie_prev['Export Value (EUR Million)'].values[0]) if len(ie_prev) > 0 else 0
-    st.metric('Export Value', f'€{val:,.0f}M', f'{val-prev:+.0f}M vs prev year')
-with col_kpi[1]:
-    cap = float(ie_year['CAP Budget (EUR Million)'].values[0]) if len(ie_year) > 0 else 0
-    st.metric('CAP Budget', f'€{cap:,.0f}M')
-with col_kpi[2]:
-    eff = float(ie_year['CAP Efficiency'].values[0]) if len(ie_year) > 0 else 0
-    st.metric('CAP Efficiency', f'{eff:.2f}x', '€ exported per €1 CAP')
-with col_kpi[3]:
-    tb = trade_balance_ie[trade_balance_ie['Year'] == selected_year]['Balance (Euro Million)'].sum()
-    st.metric('Total Trade Balance', f'€{tb:,.0f}M')
-
 st.markdown('---')
 
 col1, col2 = st.columns(2)
